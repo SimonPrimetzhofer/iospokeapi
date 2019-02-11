@@ -13,6 +13,8 @@
 		2553EEEA220B17CB0043414F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2553EEE8220B17CB0043414F /* Main.storyboard */; };
 		2553EEEC220B17CB0043414F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2553EEEB220B17CB0043414F /* Assets.xcassets */; };
 		2553EEEF220B17CB0043414F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2553EEED220B17CB0043414F /* LaunchScreen.storyboard */; };
+		25CA89CD2211BEE4000E104D /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25CA89CC2211BEE4000E104D /* DetailViewController.m */; };
+		25CA89D02211C7C7000E104D /* PokemonDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = 25CA89CF2211C7C7000E104D /* PokemonDatasource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,10 @@
 		2553EEEB220B17CB0043414F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2553EEEE220B17CB0043414F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2553EEF0220B17CB0043414F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		25CA89CB2211BEE4000E104D /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		25CA89CC2211BEE4000E104D /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		25CA89CE2211C7C7000E104D /* PokemonDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PokemonDatasource.h; sourceTree = "<group>"; };
+		25CA89CF2211C7C7000E104D /* PokemonDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PokemonDatasource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +69,10 @@
 				2553EEE5220B17CB0043414F /* ViewController.h */,
 				2553EEE6220B17CB0043414F /* ViewController.m */,
 				2553EEE8220B17CB0043414F /* Main.storyboard */,
+				25CA89CB2211BEE4000E104D /* DetailViewController.h */,
+				25CA89CE2211C7C7000E104D /* PokemonDatasource.h */,
+				25CA89CF2211C7C7000E104D /* PokemonDatasource.m */,
+				25CA89CC2211BEE4000E104D /* DetailViewController.m */,
 				2553EEEB220B17CB0043414F /* Assets.xcassets */,
 				2553EEED220B17CB0043414F /* LaunchScreen.storyboard */,
 				2553EEF0220B17CB0043414F /* Info.plist */,
@@ -154,6 +164,8 @@
 				2553EEE7220B17CB0043414F /* ViewController.m in Sources */,
 				2553EEE4220B17CB0043414F /* AppDelegate.m in Sources */,
 				2553EEE1220B17CB0043414F /* main.m in Sources */,
+				25CA89D02211C7C7000E104D /* PokemonDatasource.m in Sources */,
+				25CA89CD2211BEE4000E104D /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +324,7 @@
 				2553EEF5220B17CB0043414F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
