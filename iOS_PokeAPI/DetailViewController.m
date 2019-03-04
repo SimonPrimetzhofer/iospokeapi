@@ -10,6 +10,9 @@
 
 @interface DetailViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *pName;
+@property (strong, nonatomic) NSDictionary *detailData;
+@property (weak, nonatomic) IBOutlet UILabel *pTypes;
+@property (weak, nonatomic) IBOutlet UIImageView *pImage;
 
 @end
 
@@ -22,9 +25,56 @@
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    self.pName.text = [defaults objectForKey:@"detailUrl"];
+    [self load:[defaults objectForKey:@"detailUrl"]];
     
 }
+
+-(void) load: (NSString *) detailUrl {
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
+        NSLog(@"bin vorm fetch");
+        
+        self.detailData = [self fetchData: detailUrl];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSLog(@"Back in main");
+            self.pName.text = [self.detailData objectForKey:@"name"];
+            
+            for(id obj in [self.detailData objectForKey:@"types"]) {
+                
+                NSDictionary *typeData = obj;
+                NSDictionary *types = [typeData objectForKey:@"type"];
+                NSString *name = [types objectForKey:@"name"];
+
+                self.pTypes.text = [self.pTypes.text stringByAppendingFormat:@"%@ ", name];
+            }
+            
+            NSDictionary *images = [self.detailData objectForKey:@"sprites"];
+            NSString *imageUrl = [images objectForKey:@"front_default"];
+            
+            NSURL *url = [NSURL URLWithString: imageUrl];
+            NSData *data = [NSData dataWithContentsOfURL:url];
+            
+            UIImage *image = [UIImage imageWithData: data];
+            self.pImage.image = image;
+            
+
+        });
+        
+    });
+    
+}
+
+- (NSDictionary *) fetchData: (NSString *) dataUrl {
+    NSError *error = nil;
+    NSURL *url = [NSURL URLWithString:dataUrl];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options: NSJSONReadingMutableContainers error: &error];
+    
+    return dict;
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
