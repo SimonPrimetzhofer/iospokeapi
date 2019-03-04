@@ -17,7 +17,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    NSLog(@"Bin in da Detailview");
+    NSLog(@"%@", [NSString stringWithFormat:@"Zeile %ld", self.row]);
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
