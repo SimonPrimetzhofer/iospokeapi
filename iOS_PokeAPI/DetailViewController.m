@@ -9,6 +9,7 @@
 #import "DetailViewController.h"
 
 @interface DetailViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *pName;
 
 @end
 
@@ -19,7 +20,9 @@
     // Do any additional setup after loading the view.
     NSLog(@"%@", [NSString stringWithFormat:@"Zeile %ld", self.row]);
     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
+    self.pName.text = [defaults objectForKey:@"detailUrl"];
     
 }
 

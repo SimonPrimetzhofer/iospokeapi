@@ -9,8 +9,6 @@
 #import "ViewController.h"
 #import "DetailViewController.h"
 
-#define NUM_ELEMENTS 964
-
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic) NSInteger selectedRow;
@@ -21,9 +19,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    /*self.tableView.delegate = self;
-    self.tableView.dataSource = self;*/
  
     [self load];
 }
@@ -48,6 +43,7 @@
             NSLog(@"Back in main");
             [self.tableView setDelegate:self];
             [self.tableView setDataSource:self];
+            //self.tableView.rowHeight = UITableViewAutomaticDimension;
             [self.tableView reloadData];
         });
         
@@ -73,9 +69,12 @@
     self.selectedRow = indexPath.row;
     [self performSegueWithIdentifier:@"toDetailView" sender: self];
     
+    NSDictionary *dict = [self.response objectAtIndex: (long) indexPath.row];
+    
+    NSString *url = [dict objectForKey:@"url"];
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setInteger: indexPath.row forKey:@"selectedRow"];
-    [defaults setObject:@"testest" forKey:@"detailUrl"];
+    [defaults setObject:url forKey:@"detailUrl"];
     
     //Defaults werden über Laufzeit hinweg gespeichert
     //UserDefaults ist vergleichbar mit LocalStorage in JavaScript
@@ -93,12 +92,14 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return NUM_ELEMENTS;
+    return [self.response count];
 }
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"pokemon"];
+
     
     NSDictionary *dict = [self.response objectAtIndex: (long) indexPath.row];
     /*NSString *test = [NSString stringWithFormat:@"Pokemon %@", [dict objectForKey:@"name"]];
