@@ -13,6 +13,7 @@
 @property (strong, nonatomic) NSDictionary *detailData;
 @property (weak, nonatomic) IBOutlet UILabel *pTypes;
 @property (weak, nonatomic) IBOutlet UIImageView *pImage;
+@property (weak, nonatomic) IBOutlet UIButton *backButton;
 
 @end
 
@@ -24,7 +25,7 @@
     NSLog(@"%@", [NSString stringWithFormat:@"Zeile %ld", self.row]);
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
+    NSLog(@"im detail %@", [defaults objectForKey:@"detailUrl"]);
     [self load:[defaults objectForKey:@"detailUrl"]];
     
 }
@@ -58,7 +59,6 @@
             UIImage *image = [UIImage imageWithData: data];
             self.pImage.image = image;
             
-
         });
         
     });
@@ -81,7 +81,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -89,6 +89,6 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
 
 @end

@@ -27,11 +27,12 @@
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(queue, ^{
         NSLog(@"bin vorm fetch");
+        
         self.response = [self fetchData];
         
-        NSDictionary *dict = [self.response objectAtIndex:0];
+        /*NSDictionary *dict = [self.response objectAtIndex:0];
         NSString *test = [NSString stringWithFormat:@"Pokemon %@", [dict objectForKey:@"name"]];
-        NSLog(@"%@",test);
+        NSLog(@"%@",test);*/
         
         /*for(id obj in self.response) {
          NSDictionary *dict = obj;
@@ -67,14 +68,17 @@
 -(void) tableView: (UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     NSLog(@"cell clicked %@", indexPath);
     self.selectedRow = indexPath.row;
-    [self performSegueWithIdentifier:@"toDetailView" sender: self];
     
     NSDictionary *dict = [self.response objectAtIndex: (long) indexPath.row];
     
     NSString *url = [dict objectForKey:@"url"];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
     [defaults setObject:url forKey:@"detailUrl"];
+    
+    
+    [self performSegueWithIdentifier:@"toDetailView" sender: self];
     
     //Defaults werden über Laufzeit hinweg gespeichert
     //UserDefaults ist vergleichbar mit LocalStorage in JavaScript
