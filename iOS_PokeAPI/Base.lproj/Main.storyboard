@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G22010" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G22010" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="46a-5Y-jyc">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -44,6 +44,7 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ZkA-ni-tob" secondAttribute="bottom" id="pN2-51-oe6"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="ZOi-By-gTi"/>
                     <connections>
                         <outlet property="tableView" destination="ZkA-ni-tob" id="7Xd-up-SrJ"/>
                         <segue destination="Fch-Ia-OWk" kind="show" identifier="toDetailView" id="BSY-gb-F0v"/>
@@ -99,19 +100,10 @@
                                 <rect key="frame" x="16" y="321" width="343" height="232"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gnA-Ce-jBH">
-                                <rect key="frame" x="129" y="20" width="117" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Back"/>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="9ul-X4-6iS"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="backButton" destination="gnA-Ce-jBH" id="UPt-u2-EjA"/>
                         <outlet property="pImage" destination="hiC-sd-JcY" id="sql-jG-8fY"/>
                         <outlet property="pName" destination="Ipo-l7-d1i" id="ZWr-eS-bWf"/>
                         <outlet property="pTypes" destination="28q-Ew-CPM" id="ZBA-Hx-fGe"/>
@@ -120,6 +112,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ef9-tS-pDp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="816.79999999999995" y="41.829085457271368"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="QfI-9n-9nX">
+            <objects>
+                <navigationController id="46a-5Y-jyc" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vuC-j1-mgx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Adl-p0-Kao"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uLg-Ae-5Ua" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="365" y="215"/>
         </scene>
     </scenes>
 </document>
