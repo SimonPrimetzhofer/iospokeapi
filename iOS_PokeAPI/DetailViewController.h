@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface DetailViewController : UIViewController
-@property(nonatomic) NSInteger row;
+@property(nonatomic) NSString* detailUrl;
 @end

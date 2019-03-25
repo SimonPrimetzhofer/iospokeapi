@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic) NSInteger selectedRow;
 @property (strong, nonatomic) NSArray *response;
+@property (strong, nonatomic) NSString* detailUrl;
 @end
 
 @implementation ViewController
@@ -62,7 +63,7 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     DetailViewController *dvc = (DetailViewController *) segue.destinationViewController;
-    dvc.row = self.selectedRow;
+    dvc.detailUrl = self.detailUrl;
 }
 
 -(void) tableView: (UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
@@ -73,9 +74,11 @@
     
     NSString *url = [dict objectForKey:@"url"];
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.detailUrl = url;
     
-    [defaults setObject:url forKey:@"detailUrl"];
+    /*NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [defaults setObject:url forKey:@"detailUrl"];*/
     
     
     [self performSegueWithIdentifier:@"toDetailView" sender: self];

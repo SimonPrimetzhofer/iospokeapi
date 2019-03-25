@@ -22,11 +22,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    NSLog(@"%@", [NSString stringWithFormat:@"Zeile %ld", self.row]);
+    //NSLog(@"%@", [NSString stringWithFormat:@"Zeile %ld", self.row]);
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSLog(@"im detail %@", [defaults objectForKey:@"detailUrl"]);
-    [self load:[defaults objectForKey:@"detailUrl"]];
+    //NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    //NSLog(@"im detail %@", [defaults objectForKey:@"detailUrl"]);
+    [self load: self.detailUrl];
     
 }
 
